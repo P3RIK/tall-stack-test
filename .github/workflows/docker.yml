@@ -22,10 +22,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker image
+      - name: Build and push Laravel app image
         run: |
-          docker build -t ghcr.io/p3rik/tall-stack-test .
-
-      - name: Push Docker image
-        run: |
+          docker compose build
           docker push ghcr.io/p3rik/tall-stack-test
+
+      - name: Push database image
+        run: |
+          docker pull mysql:8.0
+          docker tag mysql:8.0 ghcr.io/p3rik/tall-stack-db:latest
+          docker push ghcr.io/p3rik/tall-stack-db:latest
