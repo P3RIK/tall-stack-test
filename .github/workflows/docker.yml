@@ -34,7 +34,7 @@ jobs:
           docker tag laravel-nginx ghcr.io/p3rik/tall-stack-nginx:latest
           docker push ghcr.io/p3rik/tall-stack-nginx:latest
 
-      - name: Push database image
+      - name: Push MySQL database image
         run: |
           docker pull mysql:8.0
           docker tag mysql:8.0 ghcr.io/p3rik/tall-stack-db:latest

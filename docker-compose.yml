@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: laravel-app
+    container_name: tall-stack-test
     volumes:
       - .:/var/www
     depends_on:
@@ -11,7 +11,7 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: laravel-nginx
+    container_name: tall-stack-nginx
     ports:
       - "8000:80"
     volumes:
@@ -22,7 +22,7 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: laravel-db
+    container_name: tall-stack-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: laravel
