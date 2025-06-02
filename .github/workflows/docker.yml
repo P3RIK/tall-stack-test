@@ -32,3 +32,5 @@ jobs:
           docker pull mysql:8.0
           docker tag mysql:8.0 ghcr.io/p3rik/tall-stack-db:latest
           docker push ghcr.io/p3rik/tall-stack-db:latest
+
+      # COmment for push
