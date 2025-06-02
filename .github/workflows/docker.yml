@@ -22,11 +22,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Laravel app image
-        run: |
-          docker compose build app
-          docker tag laravel-app ghcr.io/p3rik/tall-stack-test:latest
-          docker push ghcr.io/p3rik/tall-stack-test:latest
+      # - name: Build and push Laravel app image
+      #   run: |
+      #     docker compose build app
+      #     docker tag laravel-app ghcr.io/p3rik/tall-stack-test:latest
+      #     docker push ghcr.io/p3rik/tall-stack-test:latest
 
       - name: Build and push Nginx image
         run: |
