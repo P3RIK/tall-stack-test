@@ -1,4 +1,4 @@
-name: Build and Push Laravel Image
+name: Build and Push Laravel Stack
 
 on:
   push:
@@ -24,8 +24,15 @@ jobs:
 
       - name: Build and push Laravel app image
         run: |
-          docker compose build
-          docker push ghcr.io/p3rik/tall-stack-test
+          docker compose build app
+          docker tag laravel-app ghcr.io/p3rik/tall-stack-test:latest
+          docker push ghcr.io/p3rik/tall-stack-test:latest
+
+      - name: Build and push Nginx image
+        run: |
+          docker compose build nginx
+          docker tag laravel-nginx ghcr.io/p3rik/tall-stack-nginx:latest
+          docker push ghcr.io/p3rik/tall-stack-nginx:latest
 
       - name: Push database image
         run: |
